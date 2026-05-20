@@ -55,10 +55,27 @@ token-sentiment stats
 
 ## Proof Bundle
 
-- 15+ runs across 8 chains (Ethereum, Base, BSC, Arbitrum, Optimism, Polygon, Solana, TON)
-- SQLite tracker with real token consumption (~500-1000 MiMo tokens)
-- Proof screenshots: monitor log, token usage, recent runs, sentiment distribution
-- 14 tests passing (lexicon, onchain, pipeline, tracker)
+Real run artifacts in `docs/images/`:
+
+### Monitor Log (live sentiment scoring)
+![Monitor Log](docs/images/01_monitor_log.png)
+
+### Token Usage Tracker
+![Token Usage](docs/images/02_token_usage.png)
+
+### Per-Symbol Consumption
+![Per Symbol](docs/images/03_per_symbol.png)
+
+### Recent Runs
+![Recent Runs](docs/images/04_recent_runs.png)
+
+### Pipeline Architecture
+![Architecture](docs/images/05_architecture.png)
+
+**Stats:**
+- 15 runs across 8 chains (Ethereum, Base, BSC, Arbitrum, Optimism, Polygon, Solana, TON)
+- SQLite tracker with real token consumption (~6K MiMo tokens)
+- 16 tests passing (lexicon, models, tracker)
 
 ## Why Light MiMo Usage?
 
