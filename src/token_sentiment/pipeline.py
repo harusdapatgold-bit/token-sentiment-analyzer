@@ -139,7 +139,10 @@ Brief (concise, no markdown):"""
             )
             resp.raise_for_status()
             data = resp.json()
-            brief = data["choices"][0]["message"]["content"].strip()
+            msg = data["choices"][0]["message"]
+            brief = (msg.get("content") or msg.get("reasoning_content") or "").strip()
+            if not brief:
+                return "(no synthesis output)", 0
             usage = data.get("usage", {})
             total_tokens = usage.get("prompt_tokens", 0) + usage.get("completion_tokens", 0)
             return brief, total_tokens
