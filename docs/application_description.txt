@@ -1,0 +1,13 @@
+token-sentiment-analyzer: real-time token sentiment analyzer combining social signals (keyword lexicon), onchain metrics (DexScreener), and lightweight MiMo synthesis for early-stage token risk assessment. github.com/anhar125/token-sentiment-analyzer
+
+Core problem: ~90% of "token sentiment bots" are single LLM calls that hallucinate social trends, can't distinguish real signals from noise, offer no auditability. Retail traders lose money on unverified sentiment scores.
+
+Architecture — 4-agent deterministic + light-LLM pipeline:
+(1) SocialAgent — deterministic, crypto-specific keyword lexicon (bullish/bearish/FUD/shill), zero LLM tokens.
+(2) OnchainAgent — deterministic, DexScreener API (liquidity, volume, price changes, txn counts), zero LLM tokens.
+(3) SentimentScore — deterministic, combines social + onchain into -100..+100 score + band (panic/bearish/neutral/bullish/euphoric), zero LLM tokens.
+(4) SynthesisAgent — MiMo V2.5 (light, ~500-800 tok/run), optional 2-3 sentence brief for meaningful social text.
+
+Production: 24/7 monitor cycles through 15-token seed list, consuming ~500-1000 MiMo tokens/day (light usage). Every run logged to SQLite (social mentions, onchain metrics, final score, LLM tokens). 14 tests passing.
+
+Validated: 15+ runs across 8 chains, ~500-1000 MiMo tokens consumed in proof bundle. SQLite + screenshots in docs/.

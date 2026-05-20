@@ -1,0 +1,26 @@
+# Token seeds — one per line. Supports addresses and symbols.
+# Lines starting with # are ignored.
+
+# Blue chips
+PEPE
+SHIB
+DOGE
+WIF
+BONK
+
+# DeFi
+UNI
+AAVE
+CRV
+
+# L2 / Infra
+ARB
+OP
+TIA
+
+# Memes / Trending
+DEGEN
+TOSHI
+MOG
+SPX
+BRETT
